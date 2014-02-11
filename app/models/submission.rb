@@ -4,5 +4,4 @@ class Submission < ActiveRecord::Base
 
   validates :link, presence: true
   validates :description, presence: true
-  validates :user_id, presence: true
 end

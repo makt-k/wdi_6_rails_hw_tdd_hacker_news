@@ -1,4 +1,17 @@
 <h1>Submissions</h1>
-<h5>Signed in as: <%= current_user.email if user_signed_in? %></h5>
+
+<% if user_signed_in? %>
+<h5>Signed in as: <%= current_user.email %></h5>
+
+<% @submissions.each do |submission| %>
+  <dl>
+    <dt><%= submission.link %></dt>
+      <dd><%= submission.description %></dd>
+  </dl>
+<% end %>
 
 <%= link_to "New Submission", new_submission_path %>
+<%= link_to "Sign Out", destroy_user_session_path %>
+<% else %>
+<%= link_to "Sign Up", new_user_registration_path %>
+<% end %>

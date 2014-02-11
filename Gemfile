@@ -19,6 +19,8 @@ group :test do
   gem 'faker'
   gem 'chronic'
   gem 'simplecov'
+  gem "factory_girl_rails", "~> 4.0"
+  gem 'faker'
 end
 
 group :development, :test do
