@@ -6,4 +6,9 @@ describe Comment do
     it { should validate_presence_of(:submission_id)}
     it { should validate_presence_of(:body)}
   end
+
+  describe "associations" do
+    it { should belong_to :user}
+    it { should belong_to :submission}
+  end
 end
