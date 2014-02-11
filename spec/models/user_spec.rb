@@ -5,4 +5,8 @@ describe User do
     it { should validate_presence_of(:email)}
     it { should validate_presence_of(:password)}
   end
+
+  describe "associations" do
+    it { should have_many :submissions }
+  end
 end
