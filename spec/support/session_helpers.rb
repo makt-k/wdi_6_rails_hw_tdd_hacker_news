@@ -12,4 +12,10 @@ module SessionHelpers
     fill_in 'Description', with: submission.description
     click_on 'Post'
   end
+
+  def make(comment)
+    click_link 'Comment'
+    fill_in 'Body', with: comment.body
+    click_on 'Post comment'
+  end
 end

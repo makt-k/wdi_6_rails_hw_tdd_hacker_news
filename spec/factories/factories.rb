@@ -10,4 +10,10 @@ FactoryGirl.define do
     link 'http://www.bbc.com/future/story/20140209-why-i-want-a-microchip-implant'
     description 'With a chip under your skin, you can do everything'
   end
+
+  factory :comment do
+    user
+    submission
+    body 'This is a comment'
+  end
 end

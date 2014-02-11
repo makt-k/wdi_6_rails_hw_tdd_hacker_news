@@ -5,10 +5,11 @@
 
 <% @submissions.each do |submission| %>
   <dl>
-    <dt><%= submission.link %></dt>
-      <dd><%= submission.description %></dd>
+    <dt><%= link_to submission.link %> </dt>
+      <dd><%= submission.description %> <%= link_to "Comment", new_comment_path %> </dd>
   </dl>
 <% end %>
+
 
 <%= link_to "New Submission", new_submission_path %>
 <%= link_to "Sign Out", destroy_user_session_path %>
