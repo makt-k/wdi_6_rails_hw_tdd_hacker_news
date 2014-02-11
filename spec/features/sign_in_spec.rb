@@ -10,6 +10,6 @@ feature 'Sign_in' do
     fill_in "Email", with: 'karen@example.com'
     fill_in "Password", with: 'password'
     click_on "Sign in"
-    expect(page).to have_content ('karen@example.com')
+    expect(page).to have_content('karen@example.com')
   end
 end

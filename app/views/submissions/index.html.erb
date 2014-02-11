@@ -1,2 +1,4 @@
 <h1>Submissions</h1>
-<h5>Signed in as: <%= current_user.email %></h5>
+<h5>Signed in as: <%= current_user.email if user_signed_in? %></h5>
+
+<%= link_to "New Submission", new_submission_path %>
