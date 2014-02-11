@@ -1,0 +1,9 @@
+
+<h4><%= @submission.link %></h4>
+<p><%= @submission.description %></p>
+
+<% @submission.comments.each do |comment| %>
+<ul><li><%= comment.body %></li></ul>
+<% end %>
+
+<%= link_to "New Comment", new_submission_comment_path(@submission.id) %>

@@ -24,7 +24,7 @@ class SubmissionsController < ApplicationController
   end
 
   def get_user
-    @user = current_user
+    @user = User.find(params[:user_id]) if params.key?(:user_id)
   end
 
 end
