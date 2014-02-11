@@ -14,7 +14,7 @@ module SessionHelpers
   end
 
   def make(comment)
-    click_link 'Comment'
+    click_link 'New Comment'
     fill_in 'Body', with: comment.body
     click_on 'Post comment'
   end

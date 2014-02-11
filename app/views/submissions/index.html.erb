@@ -6,7 +6,7 @@
 <% @submissions.each do |submission| %>
   <dl>
     <dt><%= link_to submission.link %> </dt>
-      <dd><%= submission.description %> <%= link_to "Comment", new_comment_path %> </dd>
+      <dd><%= submission.description %> <%= link_to "New Comment", new_comment_path %> </dd>
   </dl>
 <% end %>
 

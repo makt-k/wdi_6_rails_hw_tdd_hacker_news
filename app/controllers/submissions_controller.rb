@@ -1,5 +1,4 @@
 class SubmissionsController < ApplicationController
-
   before_action :get_user
 
   def index
@@ -15,13 +14,17 @@ class SubmissionsController < ApplicationController
     redirect_to :root
   end
 
+  def show
+    @submission = Submission.find(params[:id])
+  end
+
   private
   def submission_params
     params.require(:submission).permit(:link, :description, :id, :user_id)
   end
 
   def get_user
-    user = current_user
+    @user = current_user
   end
 
 end

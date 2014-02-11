@@ -7,7 +7,7 @@ feature 'Make comment' do
     comment = create(:comment, body: 'body', user: user, submission: submission)
     sign_in_as(user)
     make(comment)
-
+    expect(page).to have_content('body')
   end
 
 end
