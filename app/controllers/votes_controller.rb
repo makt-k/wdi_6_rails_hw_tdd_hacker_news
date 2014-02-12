@@ -19,20 +19,20 @@ class VotesController < ApplicationController
 
   private
 
-    def set_vote
-      @vote = Vote.find(params[:id])
-    end
+  def set_vote
+    @vote = Vote.find(params[:id])
+  end
 
-    def set_votable
-      @votable = params[:votable].classify.constantize.find(votable_id)
-    end
+  def set_votable
+    @votable = params[:votable].classify.constantize.find(votable_id)
+  end
 
-    def votable_id
-      params[(params[:votable] + "_id").to_sym]
-    end
+  def votable_id
+    params[(params[:votable] + "_id").to_sym]
+  end
 
-    def vote_params
-      params.require(:vote).permit(:direction)
-    end
+  def vote_params
+    params.require(:vote).permit(:direction)
+  end
 
 end

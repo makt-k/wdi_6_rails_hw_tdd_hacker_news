@@ -9,6 +9,7 @@ feature 'Sign_up' do
     fill_in 'Password', with: 'password'
     fill_in 'Password confirmation', with: 'password'
     click_on 'Sign up'
+
     expect(page).to have_content('Submissions')
   end
 end

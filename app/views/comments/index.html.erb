@@ -1,4 +1,6 @@
-
 <% @comments.each do |comment| %>
-<ul><li><%= comment.body %></li></ul>
+  <ul>
+    <li>Comment: <%= comment.body %> <%= link_to 'More', submission_comment_path(@submission.id, comment.id) %></li>
+  </ul>
 <% end %>
+

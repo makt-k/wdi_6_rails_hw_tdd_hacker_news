@@ -7,6 +7,7 @@ feature 'Make comment' do
     sign_in_as(user)
     click_link 'View'
     make(comment)
+
     expect(page).to have_content('View Comments')
   end
 end

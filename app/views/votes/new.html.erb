@@ -1,5 +1,5 @@
 <%= simple_form_for [@votable, @vote] do |f| %>
-<%= f.collection_radio_buttons :direction, [[true, 'Upvote'], [false, 'Downvote']], :first, :last %>
-<%= f.submit 'Vote' %>
+  <%= f.collection_radio_buttons :direction, [[true, 'Upvote'], [false, 'Downvote']], :first, :last %>
+  <%= f.submit 'Vote' %>
 <% end %>
 <p>Upvotes: <%= @votable.votes.where(direction: true).count %> Downvotes: <%= @votable.votes.where(direction: false).count %></p>

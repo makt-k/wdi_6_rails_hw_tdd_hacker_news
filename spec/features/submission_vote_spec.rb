@@ -6,5 +6,7 @@ feature 'Allow users to vote on submissions' do
     sign_in_as(user)
     click_link 'View'
     click_link 'Vote'
+
+    expect(page).to have_content('Upvote')
   end
 end

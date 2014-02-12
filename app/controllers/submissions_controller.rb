@@ -19,6 +19,7 @@ class SubmissionsController < ApplicationController
   end
 
   private
+
   def submission_params
     params.require(:submission).permit(:link, :description, :id, :user_id)
   end
