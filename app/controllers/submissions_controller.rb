@@ -1,5 +1,4 @@
 class SubmissionsController < ApplicationController
-  before_action :get_user
 
   def index
     @submissions = Submission.all
@@ -10,7 +9,9 @@ class SubmissionsController < ApplicationController
   end
 
   def create
-    Submission.all << Submission.create!(submission_params)
+    @submission = Submission.new(submission_params)
+    @submission.user_id = current_user.id
+    Submission.all << @submission.save
     redirect_to :root
   end
 
@@ -24,8 +25,5 @@ class SubmissionsController < ApplicationController
     params.require(:submission).permit(:link, :description, :id, :user_id)
   end
 
-  def get_user
-    @user = User.find(params[:user_id]) if params.key?(:user_id)
-  end
 
 end

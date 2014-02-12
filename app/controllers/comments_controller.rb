@@ -13,7 +13,10 @@ class CommentsController < ApplicationController
   end
 
   def create
-    Comment.all << Comment.create!(comment_params)
+    @comment = Comment.new(comment_params)
+    @comment.user_id = current_user.id
+    @comment.submission_id = params[:submission_id]
+    Comment.all << @comment.save
     redirect_to submission_path(@submission.id)
   end
 
@@ -32,7 +35,7 @@ class CommentsController < ApplicationController
   end
 
   def get_submission
-    @submission = Submission.find(params[:submission_id]) if params.key?(:submission_id)
+    @submission = Submission.find(params[:submission_id])
   end
 
 end
