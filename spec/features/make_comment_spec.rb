@@ -5,8 +5,8 @@ feature 'Make comment' do
     user = create(:user)
     comment = create(:comment, body: 'body', :user_id => user.id)
     sign_in_as(user)
-    click_link 'View Comments'
+    click_link 'View'
     make(comment)
-    expect(page).to have_content('body')
+    expect(page).to have_content('View Comments')
   end
 end

@@ -5,8 +5,8 @@
 
 <% @submissions.each do |submission| %>
   <dl>
-    <dt><%= link_to submission.link %> submitted by: <%=submission.user_id %></dt>
-      <dd><%= submission.description %> <%= link_to 'View Comments', submission_path(submission.id) %></dd>
+    <dt><%=submission.link %> submitted by: <%=submission.user_id %></dt>
+      <dd><%= submission.description %> <%= link_to 'View', submission_path(submission.id) %></dd>
   </dl>
 <% end %>
 

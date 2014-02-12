@@ -6,7 +6,6 @@ class CommentsController < ApplicationController
 
   def index
     @comments = Comment.all
-    redirect_to submission_path(@submission.id)
   end
 
   def new

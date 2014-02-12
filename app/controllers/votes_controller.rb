@@ -11,7 +11,8 @@ class VotesController < ApplicationController
   end
 
   def create
-    Vote.create!(vote_params)
+    @vote= @votable.votes.new(vote_params)
+    @vote.save
     redirect_to @votable
   end
 
