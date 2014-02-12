@@ -1,7 +1,6 @@
 class CommentsController < ApplicationController
 
   before_action :get_submission
-
   before_action :get_user
 
 
@@ -17,6 +16,10 @@ class CommentsController < ApplicationController
   def create
     Comment.all << Comment.create!(comment_params)
     redirect_to submission_path(@submission.id)
+  end
+
+  def show
+    @comment = Comment.find(params[:id])
   end
 
 private

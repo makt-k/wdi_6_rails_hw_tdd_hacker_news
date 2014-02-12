@@ -7,3 +7,5 @@
 <% end %>
 
 <%= link_to "New Comment", new_submission_comment_path(@submission.id) %>
+<%= link_to "Vote", [:new, @submission, :vote] %>
+

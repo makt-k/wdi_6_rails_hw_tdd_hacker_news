@@ -8,6 +8,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
 gem 'jbuilder', '~> 1.2'
 gem 'devise'
+gem 'simple_form'
 
 # These are gems you may find useful for testing
 # I have NOT created configuration in the /spec directory for you
@@ -19,7 +20,6 @@ group :test do
   gem 'chronic'
   gem 'simplecov'
   gem "factory_girl_rails", "~> 4.0"
-  gem 'faker'
 end
 
 group :development, :test do

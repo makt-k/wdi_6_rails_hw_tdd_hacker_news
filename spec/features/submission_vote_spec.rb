@@ -1,12 +1,10 @@
 require 'spec_helper'
-
-feature 'Make comment' do
-  scenario 'Signed-in user can make comments' do
+feature 'Allow users to vote on submissions' do
+  scenario 'User can upvote' do
     user = create(:user)
     comment = create(:comment, body: 'body', :user_id => user.id)
     sign_in_as(user)
     click_link 'View Comments'
-    make(comment)
-    expect(page).to have_content('body')
+    click_link 'Vote'
   end
 end
