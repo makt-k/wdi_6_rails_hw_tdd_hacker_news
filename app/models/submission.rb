@@ -7,7 +7,7 @@ class Submission < ActiveRecord::Base
   validates :description, presence: true
 
   def vote_count
-    self.votes.count -  self.votes.where(direction: false).count
+    self.votes.count - self.votes.where(direction: false).count
   end
 
 end

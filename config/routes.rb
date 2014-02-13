@@ -4,7 +4,8 @@ HackerNews::Application.routes.draw do
       post 'upvote' => 'votes#upvote', as: 'upvote', defaults: { votable: 'submission' }
       post 'downvote' => 'votes#downvote', as: 'downvote', defaults: { votable: 'submission' }
     resources :comments do
-      resources :votes, defaults: {votable: 'comment'}
+      post 'upvote' => 'votes#upvote', as: 'upvote', defaults: { votable: 'submission' }
+      post 'downvote' => 'votes#downvote', as: 'downvote', defaults: { votable: 'submission' }
     end
   end
   root to: "submissions#index"

@@ -6,16 +6,6 @@ class VotesController < ApplicationController
     @votes = Vote.all
   end
 
-  def new
-    @vote = Vote.new
-  end
-
-  def create
-    @vote = @votable.votes.find_or_create_by(:user_id => current_user.id)
-    @vote.save!
-    redirect_to submission_path(@votable.submission_id)
-  end
-
   def upvote
     @vote = @votable.votes.find_or_create_by(:user_id => current_user.id)
     @vote[:direction] = true

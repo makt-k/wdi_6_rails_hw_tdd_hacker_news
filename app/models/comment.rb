@@ -6,7 +6,7 @@ class Comment < ActiveRecord::Base
   validates :body, presence: true
 
   def vote_count
-    self.votes.count -  self.votes.where(direction: false).count
+    self.votes.count - self.votes.where(direction: false).count
   end
 
 end
