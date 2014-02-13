@@ -13,9 +13,20 @@ class VotesController < ApplicationController
   def create
     @vote= @votable.votes.new(vote_params)
     @vote.save
-    redirect_to @votable
+    redirect_to submission_path(@votable.submission_id)
   end
 
+  def upvote
+    @vote= @votable.votes.new(direction: true)
+    @vote.save
+    redirect_to :back
+  end
+
+  def downvote
+    @vote = @votable.votes.new(direction: false)
+    @vote.save
+    redirect_to :back
+  end
 
   private
 

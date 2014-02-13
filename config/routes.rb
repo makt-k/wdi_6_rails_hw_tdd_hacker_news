@@ -1,7 +1,8 @@
 HackerNews::Application.routes.draw do
   devise_for :users
   resources :submissions do
-    resources :votes, defaults: {votable: 'submission'}
+      post 'upvote' => 'votes#upvote', as: 'upvote', defaults: { votable: 'submission' }
+      post 'downvote' => 'votes#downvote', as: 'downvote', defaults: { votable: 'submission' }
     resources :comments do
       resources :votes, defaults: {votable: 'comment'}
     end

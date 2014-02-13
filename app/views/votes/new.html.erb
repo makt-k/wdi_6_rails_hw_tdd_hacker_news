@@ -1,4 +1,4 @@
-<%= simple_form_for [@votable, @vote] do |f| %>
+<%= form_for [@votable.submission, @votable, @vote] do |f| %>
   <%= f.collection_radio_buttons :direction, [[true, 'Upvote'], [false, 'Downvote']], :first, :last %>
   <%= f.submit 'Vote' %>
 <% end %>

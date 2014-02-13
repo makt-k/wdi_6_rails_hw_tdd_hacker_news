@@ -3,11 +3,12 @@
 
   <% @submission.comments.each do |comment| %>
     <ul>
-      <li><%= comment.body %> <%= link_to 'Vote', [:new, comment.submission, comment, :vote] %></li>
+      <li><%= comment.body %> <%= link_to 'Vote', [:new, comment.submission, comment, :vote] %> Upvotes: <%= comment.votes.where(direction: true).count%>  Downvotes: <%= comment.votes.where(direction: false).count%></li>
     </ul>
   <% end %>
 
     <%= link_to "New Comment", new_submission_comment_path(@submission.id) %>
-    <%= link_to "Vote", [:new, @submission, :vote] %>
+    <%= link_to "Up Vote", submission_upvote_path(@submission.id), method: 'post'  %>
+    <%= link_to "Down Vote", submission_downvote_path(@submission.id), method: 'post'  %>
 
   <p>Upvotes: <%= @submission.votes.where(direction: true).count %> Downvotes: <%= @submission.votes.where(direction: false).count %></p
