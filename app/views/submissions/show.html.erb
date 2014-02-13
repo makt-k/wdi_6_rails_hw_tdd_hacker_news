@@ -1,4 +1,4 @@
-<h3>Link: <%= link_to @submission.link %></h3>
+<h3>Link: <%= @submission.link %></h3>
   <h4>Description: <%= @submission.description %></h4>
     <p> Rate this submission:
       <%= link_to "Up Vote", submission_upvote_path(@submission.id), method: 'post'  %>
@@ -10,7 +10,7 @@
        <p><%= link_to "New Comment", new_submission_comment_path(@submission.id) %></p>
           <% @comments.each do |comment| %>
             <ul class="comment-list">
-              <li id="comments"><%= comment.body %> <br>
+              <li id="comments"><%= comment.body %> submitted by: <%= comment.user.email %><br>
                 <%= link_to "Up Vote", submission_comment_upvote_path(comment.submission_id, comment.id), method: 'post' %>
                 <%= link_to "Down Vote", submission_comment_downvote_path(comment.submission_id, comment.id), method: 'post' %> <br>
                   <%= comment.vote_count%> points

@@ -1,7 +1,7 @@
 class SubmissionsController < ApplicationController
 
   def index
-    @submissions = Submission.all.sort! { |x, y| y.vote_count <=> x.vote_count }
+    @submissions = Submission.includes(:user).all.sort! { |x, y| y.vote_count <=> x.vote_count }
   end
 
   def new

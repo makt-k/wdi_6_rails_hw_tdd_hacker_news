@@ -3,8 +3,8 @@
   <% @submissions.each do |submission| %>
     <dl>
       <dt>
-        <%= link_to submission.link %> <br>
-        <%= link_to 'Description and Comments', submission_path(submission.id) %>
+        <a href="<%= submission.link %>"><%= submission.link %></a> <br>
+        <%= link_to 'Description and Comments', submission_path(submission.id) %> submitted by <%= submission.user.email %>
       </dt>
         <dd> <%= submission.vote_count %> points
         </dd>

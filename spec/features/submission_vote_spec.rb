@@ -7,6 +7,6 @@ feature 'Allow users to vote on submissions' do
     click_link 'Description and Comments'
     click_link 'Up Vote'
 
-    expect(page).to have_content('Upvotes')
+    expect(page).to have_content('1 points')
   end
 end

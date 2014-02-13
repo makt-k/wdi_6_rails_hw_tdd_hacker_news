@@ -9,6 +9,6 @@ feature 'Make comment' do
     click_link 'Description and Comments'
     make(comment)
 
-    expect(page).to have_content('Rate this comment')
+    expect(page).to have_content('points')
   end
 end
