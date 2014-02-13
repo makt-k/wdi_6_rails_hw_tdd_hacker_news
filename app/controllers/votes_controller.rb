@@ -28,6 +28,12 @@ class VotesController < ApplicationController
     redirect_to :back
   end
 
+  # def vote_count
+  #   up = @votable.votes.where(direction: true).count
+  #   down = @votable.votes.where(direction: false).count
+  #   up.to_i - down.to_i
+  # end
+
   private
 
   def set_vote

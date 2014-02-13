@@ -24,3 +24,15 @@
 header {
   background-color: #e59400;
 }
+
+.label {
+  margin-right: 20px;
+}
+
+body {
+  background-color: #bdbdbd;
+}
+
+.container {
+  padding: 50px;
+}

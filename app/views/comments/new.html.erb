@@ -1,5 +1,10 @@
+<h1>Add a new comment to:</h1>
+  <p>Link: <%=@submission.link%></p>
+
 <%= form_for [@submission, @comment] do |f| %>
-  <%= f.label :body %>
-  <%= f.text_area :body %>
-  <%= f.submit "Post comment" %>
+  <div class="label">
+    <%= f.label :body %>
+  </div>
+    <%= f.text_area :body, :cols => "70", :rows => "10" %>
+    <%= f.submit "Post comment" %>
 <% end %>
