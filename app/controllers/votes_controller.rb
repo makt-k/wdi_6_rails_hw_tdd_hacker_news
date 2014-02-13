@@ -11,28 +11,24 @@ class VotesController < ApplicationController
   end
 
   def create
-    @vote= @votable.votes.new(vote_params)
-    @vote.save
+    @vote = @votable.votes.find_or_create_by(:user_id => current_user.id)
+    @vote.save!
     redirect_to submission_path(@votable.submission_id)
   end
 
   def upvote
-    @vote= @votable.votes.new(direction: true)
-    @vote.save
+    @vote = @votable.votes.find_or_create_by(:user_id => current_user.id)
+    @vote[:direction] = true
+    @vote.save!
     redirect_to :back
   end
 
   def downvote
-    @vote = @votable.votes.new(direction: false)
-    @vote.save
+    @vote = @votable.votes.find_or_create_by(:user_id => current_user.id)
+    @vote[:direction] = false
+    @vote.save!
     redirect_to :back
   end
-
-  # def vote_count
-  #   up = @votable.votes.where(direction: true).count
-  #   down = @votable.votes.where(direction: false).count
-  #   up.to_i - down.to_i
-  # end
 
   private
 

@@ -2,16 +2,17 @@
   <h4>Description: <%= @submission.description %></h4>
     <p> Rate this submission:
       <%= link_to "Up Vote", submission_upvote_path(@submission.id), method: 'post'  %>
-      <%= link_to "Down Vote", submission_downvote_path(@submission.id), method: 'post' %>
+      <%= link_to "Down Vote", submission_downvote_path(@submission.id), method: 'post' %><br>
+      Votes: <%= @submission.vote_count%>
     </p>
 
     <h4>Comments:</h4>
        <p><%= link_to "New Comment", new_submission_comment_path(@submission.id) %></p>
-          <% @submission.comments.each do |comment| %>
+          <% @comments.each do |comment| %>
             <ul class="comment-list">
               <li id="comments"><%= comment.body %> <br>
                 <%= link_to 'Rate this comment', [:new, comment.submission, comment, :vote] %> <br>
-                Upvotes: <%= comment.votes.where(direction: true).count%>  Downvotes: <%= comment.votes.where(direction: false).count%></li>
+                Votes: <%= comment.vote_count%>
             </ul>
           <% end %>
 

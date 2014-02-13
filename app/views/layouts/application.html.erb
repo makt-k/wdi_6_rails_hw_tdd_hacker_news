@@ -13,7 +13,7 @@
       <ul class="navbar">
         <li class="status"> <%= link_to 'Home', root_path %></li>
         <li class="status">Signed in as: <%= current_user.email %></li>
-        <li class="status"><%= link_to 'Sign out', destroy_user_session_path %></li>
+        <li class="status"><%= link_to 'Sign out', destroy_user_session_path, :method => 'delete' %></li>
       </ul>
     <% end %>
   </nav>
