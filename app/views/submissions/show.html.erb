@@ -3,7 +3,7 @@
     <p> Rate this submission:
       <%= link_to "Up Vote", submission_upvote_path(@submission.id), method: 'post'  %>
       <%= link_to "Down Vote", submission_downvote_path(@submission.id), method: 'post' %><br>
-      Votes: <%= @submission.vote_count%>
+      <%= @submission.vote_count%> points
     </p>
 
     <h4>Comments:</h4>
@@ -13,7 +13,7 @@
               <li id="comments"><%= comment.body %> <br>
                 <%= link_to "Up Vote", submission_comment_upvote_path(comment.submission_id, comment.id), method: 'post' %>
                 <%= link_to "Down Vote", submission_comment_downvote_path(comment.submission_id, comment.id), method: 'post' %> <br>
-                  Votes: <%= comment.vote_count%>
+                  <%= comment.vote_count%> points
             </ul>
           <% end %>
 

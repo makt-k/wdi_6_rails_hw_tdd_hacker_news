@@ -6,7 +6,7 @@
         <%= link_to submission.link %> <br>
         <%= link_to 'Description and Comments', submission_path(submission.id) %>
       </dt>
-        <dd> Upvotes: <%= submission.votes.where(direction: true).count%>  Downvotes: <%= submission.   votes.where(direction: false).count%>
+        <dd> <%= submission.vote_count %> points
         </dd>
     </dl>
   <% end %>

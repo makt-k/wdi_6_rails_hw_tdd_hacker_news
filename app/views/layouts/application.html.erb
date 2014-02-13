@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>HackerNews</title>
+  <title>QuackierNews</title>
   <%= stylesheet_link_tag    "application", media: "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
@@ -11,7 +11,7 @@
   <nav>
     <% if user_signed_in? %>
       <ul class="navbar">
-        <li class="status"> <%= link_to 'Home', root_path %></li>
+        <li class="title"><%= link_to 'QuackierNews', root_path %></li>
         <li class="status">Signed in as: <%= current_user.email %></li>
         <li class="status"><%= link_to 'Sign out', destroy_user_session_path, :method => 'delete' %></li>
       </ul>
