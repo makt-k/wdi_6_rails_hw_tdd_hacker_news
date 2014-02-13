@@ -1,18 +1,15 @@
 <h1>Submissions</h1>
 
-<% if user_signed_in? %>
-<h5>Signed in as: <%= current_user.email %></h5>
-
-<% @submissions.each do |submission| %>
-  <dl>
-    <dt><%=submission.link %> submitted by: <%=submission.user_id %></dt>
-      <dd><%= submission.description %> <%= link_to 'View', submission_path(submission.id) %> Upvotes: <%= submission.votes.where(direction: true).count%>  Downvotes: <%= submission.votes.where(direction: false).count%></dd>
-  </dl>
-<% end %>
+  <% @submissions.each do |submission| %>
+    <dl>
+      <dt>
+        <%=submission.link %> <br>
+        <%= link_to 'Description and Comments', submission_path(submission.id) %>
+      </dt>
+        <dd> Upvotes: <%= submission.votes.where(direction: true).count%>  Downvotes: <%= submission.   votes.where(direction: false).count%>
+        </dd>
+    </dl>
+  <% end %>
 
 
 <%= link_to "New Submission", new_submission_path %>
-<%= link_to "Sign Out", destroy_user_session_path, :method => 'delete' %>
-<% else %>
-<%= link_to "Sign Up", new_user_registration_path %>
-<% end %>

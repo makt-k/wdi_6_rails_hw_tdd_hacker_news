@@ -1,7 +1,12 @@
+<h1>Submit a New Link</h1>
 <%= form_for @submission do |f| %>
-  <%= f.label :link %>
-  <%= f.text_field :link %>
-  <%= f.label :description %>
-  <%= f.text_area :description %>
+  <div>
+    <%= f.label :link %>
+    <%= f.text_field :link %>
+  </div>
+  <div>
+    <%= f.label :description %>
+    <%= f.text_area :description %>
+  </div>
   <%= f.submit "Post" %>
 <% end %>

@@ -8,6 +8,6 @@ feature 'Sign_in' do
 
     expect(page).to have_content("#{user.email}")
     expect(page).to have_link('New Submission')
-    expect(page).to have_link('Sign Out')
+    expect(page).to have_link('Sign out')
   end
 end
