@@ -11,8 +11,8 @@
           <% @comments.each do |comment| %>
             <ul class="comment-list">
               <li id="comments"><%= comment.body %> <br>
-                <%= link_to "Up Vote", submission_comment_upvote_path(comment.submission, comment), method: 'post' %>
-                <%= link_to "Down Vote", submission_comment_downvote_path(comment.submission, comment), method: 'post' %> <br>
+                <%= link_to "Up Vote", submission_comment_upvote_path(comment.submission_id, comment.id), method: 'post' %>
+                <%= link_to "Down Vote", submission_comment_downvote_path(comment.submission_id, comment.id), method: 'post' %> <br>
                   Votes: <%= comment.vote_count%>
             </ul>
           <% end %>

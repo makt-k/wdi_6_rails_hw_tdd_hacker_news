@@ -27,3 +27,4 @@ class SubmissionsController < ApplicationController
     params.require(:submission).permit(:link, :description)
   end
 end
+
