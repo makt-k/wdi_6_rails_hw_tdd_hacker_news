@@ -1,5 +1,0 @@
-<h1>Rate this comment</h1>
-  <%= form_for [@votable.submission, @votable, @vote] do |f| %>
-    <%= f.collection_radio_buttons :direction, [[true, 'Upvote'], [false, 'Downvote']], :first, :last %>
-    <%= f.submit 'Vote' %>
-  <% end %>
