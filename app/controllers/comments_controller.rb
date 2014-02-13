@@ -1,14 +1,9 @@
 class CommentsController < ApplicationController
-
   before_action :get_submission
-  before_action :get_user
 
-
-  def index
-    @comments = Comment.all
-  end
 
   def new
+    @submission = Submission.find(params[:submission_id])
     @comment = Comment.new
   end
 
@@ -16,26 +11,17 @@ class CommentsController < ApplicationController
     @comment = Comment.new(comment_params)
     @comment.user_id = current_user.id
     @comment.submission_id = params[:submission_id]
-    Comment.all << @comment.save
-    redirect_to submission_path(@submission.id)
+    @comment.save
+    redirect_to submission_path(@comment.submission_id)
   end
 
-  def show
-    @comment = Comment.find(params[:id])
-  end
 
   private
-
-  def comment_params
-    params.require(:comment).permit(:body, :id, :user_id, :submission_id)
-  end
-
-  def get_user
-    @user = User.find(params[:user_id]) if params.key?(:user_id)
-  end
-
   def get_submission
     @submission = Submission.find(params[:submission_id])
   end
 
+  def comment_params
+    params.require(:comment).permit(:body)
+  end
 end

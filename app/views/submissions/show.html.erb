@@ -1,10 +1,13 @@
-
 <h4><%= @submission.link %></h4>
   <p><%= @submission.description %></p>
 
-    <%= link_to "View Comments", submission_comments_path(@submission.id) %></li>
+  <% @submission.comments.each do |comment| %>
+    <ul>
+      <li><%= comment.body %> <%= link_to 'Vote', [:new, comment.submission, comment, :vote] %></li>
+    </ul>
+  <% end %>
 
     <%= link_to "New Comment", new_submission_comment_path(@submission.id) %>
     <%= link_to "Vote", [:new, @submission, :vote] %>
 
-  <p>Upvotes: <%= @submission.votes.where(direction: true).count %> Downvotes: <%= @submission.votes.where(direction: false).count %></p>
+  <p>Upvotes: <%= @submission.votes.where(direction: true).count %> Downvotes: <%= @submission.votes.where(direction: false).count %></p

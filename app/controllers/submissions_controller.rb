@@ -17,13 +17,12 @@ class SubmissionsController < ApplicationController
 
   def show
     @submission = Submission.find(params[:id])
+    @comments = @submission.comments
   end
 
   private
 
   def submission_params
-    params.require(:submission).permit(:link, :description, :id, :user_id)
+    params.require(:submission).permit(:link, :description)
   end
-
-
 end
