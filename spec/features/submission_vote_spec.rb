@@ -5,8 +5,8 @@ feature 'Allow users to vote on submissions' do
     comment = create(:comment, body: 'body', :user_id => user.id)
     sign_in_as(user)
     click_link 'Description and Comments'
-    click_link 'Up Vote'
+    click_link('Up Vote', match: :first)
 
-    expect(page).to have_content('1 points')
+    expect(page).to have_content('1 point')
   end
 end
