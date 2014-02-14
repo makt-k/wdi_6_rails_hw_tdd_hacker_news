@@ -1,4 +1,4 @@
-<h4>Link: <%= @submission.link %></h4>
+<h4><a href="<%= @submission.link %>"><%= submission.link %></a></h4>
   <h5>Description: <%= @submission.description %></h5>
     <h6> Rate this submission:
       <%= link_to "Up Vote", submission_upvote_path(@submission.id), method: 'post'  %>
