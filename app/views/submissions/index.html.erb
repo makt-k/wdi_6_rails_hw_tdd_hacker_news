@@ -1,15 +1,14 @@
-<h1>Submissions</h1>
+<% @submissions.each do |submission| %>
+  <table>
+    <tr class="submission">
+      <a href="<%= submission.link %>", class="link"><%= submission.link %></a><br>
+      <span class="show"><%= link_to 'Description and Comments', submission_path(submission.id) %> submitted by <%= submission.user.email %></span>
+    </tr>
+      <td class="count"> <%= pluralize(submission.comments.count, 'comment') %>
+                         <%= pluralize(submission.vote_count, 'point') %>
+      </td>
+  </table>
+<% end %>
 
-  <% @submissions.each do |submission| %>
-    <dl>
-      <dt>
-        <a href="<%= submission.link %>"><%= submission.link %></a> <br>
-        <%= link_to 'Description and Comments', submission_path(submission.id) %> submitted by <%= submission.user.email %>
-      </dt>
-        <dd> <%= pluralize(submission.comments.count, 'comment') %>    <%= pluralize(submission.vote_count, 'point') %>
-        </dd>
-    </dl>
-  <% end %>
 
-
-<%= link_to "New Submission", new_submission_path %>
+<h5><%= link_to "New Submission", new_submission_path %></h5>

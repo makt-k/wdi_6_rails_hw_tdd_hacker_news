@@ -1,5 +1,5 @@
-<h1>Add a new comment to:</h1>
-  <p>Link: <%=@submission.link%></p>
+<h4>Add a new comment to:</h4>
+  <h5><a href="<%=@submission.link%>"><%=@submission.link%></h5>
 
 <%= form_for [@submission, @comment] do |f| %>
   <div class="label">
