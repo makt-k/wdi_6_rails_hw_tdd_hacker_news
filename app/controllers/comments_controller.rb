@@ -1,7 +1,6 @@
 class CommentsController < ApplicationController
   before_action :get_submission
 
-
   def new
     @submission = Submission.find(params[:submission_id])
     @comment = Comment.new
@@ -15,7 +14,6 @@ class CommentsController < ApplicationController
     @comment.save
     redirect_to submission_path(@comment.submission_id)
   end
-
 
   private
   def get_submission

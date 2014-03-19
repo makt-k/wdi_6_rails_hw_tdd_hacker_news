@@ -2,9 +2,6 @@
   <h5><a href="<%=@submission.link%>"><%=@submission.link%></h5>
 
 <%= form_for [@submission, @comment] do |f| %>
-  <div class="label">
-    <%= f.label :body %>
-  </div>
     <%= f.text_area :body, :cols => "70", :rows => "10" %>
     <%= f.submit "Post comment" %>
 <% end %>
